@@ -23,7 +23,7 @@ http {
 
   access_log    <%= @node[:nginx][:log_dir] %>/access.log;
 
-  <% if node.attribute?('vagrant') %>
+  <% if node[:instance_role] == 'vagrant' %>
     sendfile off;
   <% else %>
     sendfile on;
