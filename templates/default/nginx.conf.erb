@@ -23,7 +23,12 @@ http {
 
   access_log    <%= @node[:nginx][:log_dir] %>/access.log;
 
-  sendfile on;
+  <% if node.attribute?('vagrant') %>
+    sendfile off;
+  <% else %>
+    sendfile on;
+  <% end %>
+  
   tcp_nopush on;
   tcp_nodelay on;
   
