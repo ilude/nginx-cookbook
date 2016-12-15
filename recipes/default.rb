@@ -17,6 +17,7 @@
 # end
 
 package "software-properties-common"
+package "python-software-properties"
 
 execute "add-apt-repository" do
   command "add-apt-repository ppa:nginx/stable && apt-get update"
